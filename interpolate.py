@@ -20,7 +20,7 @@ except ImportError:
 traj = trajectory.load_dcd('pulling.dcd', 'input.pdb')
 atom_names = [a.element.symbol for a in traj.topology.atoms()]
 
-traj.xyz = smooth_cartesian(traj.xyz, strength=100)
+traj.xyz = smooth_cartesian(traj.xyz, strength=150)
 for i in range(traj.n_frames):
     traj._xyz[i] -= np.mean(traj._xyz[i], axis=0)
 
